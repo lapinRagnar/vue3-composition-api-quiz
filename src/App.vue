@@ -1,17 +1,29 @@
+<script setup>
+
+  import q from '@/data/quize.json'
+  import { ref } from 'vue'
+
+  const quizes = ref(q)
+
+</script>
+
 <template>
+
   <div class="container">
     <header>
       <h1>Quizes</h1>
       <input type="text" placeholder="rechercher...">
+
       <div class="options-container">
-        <div class="card">
-          <img src="https://realitatea.md/wp-content/uploads/2021/09/matematica.png" alt="">
+        <div class="card" v-for="quiz in quizes" :key="quiz.id">
+          <img :src="quiz.img" alt="">
           <div class="card-text">
-            <h2>Math</h2>
-            <p>15 questions...</p>
+            <h2>{{ quiz.name }}</h2>
+            <p>{{ quiz.questions.length }} questions...</p>
           </div>
         </div>
       </div>
+
     </header>
   </div>
 </template>
@@ -20,11 +32,11 @@
 
   .container {
     max-width: 1000px;
-    /* margin: 0 auto; */
+    margin: 0 auto;
     height: 100vh;
     width: 100vw;
     display: flex;
-    align-items: start;
+    align-items: center;
     justify-content: center;
 
     header {
@@ -59,6 +71,7 @@
         display: flex;
         flex-wrap: wrap;
         margin-top: 4px;
+        gap: 20px;
 
         .card {
           width: 310px;
