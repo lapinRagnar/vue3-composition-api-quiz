@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import QuizesView from '@/views/QuizesView.vue'
+import QuizView from '@/views/QuizView.vue'
 
 
 const router = createRouter({
@@ -10,6 +11,11 @@ const router = createRouter({
       path: '/',
       name: 'quizes',
       component: QuizesView
+    },
+    {
+      path: '/quiz/:id',
+      name: 'quiz',
+      component: QuizView
     },
 
     /**
