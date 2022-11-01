@@ -2,6 +2,7 @@
 
   import q from '@/data/quize.json'
   import { ref, watch } from 'vue'
+  import Card from '@/components/Card.vue'
 
   const quizes = ref(q)
   const search = ref('')
@@ -20,13 +21,9 @@
       <input v-model.trim="search" type="text" placeholder="rechercher...">
 
       <div class="options-container">
-        <div class="card" v-for="quiz in quizes" :key="quiz.id">
-          <img :src="quiz.img" alt="">
-          <div class="card-text">
-            <h2>{{ quiz.name }}</h2>
-            <p>{{ quiz.questions.length }} questions...</p>
-          </div>
-        </div>
+
+        <Card v-for="quiz in quizes" :key="quiz.id" :quiz="quiz" />
+
       </div>
 
     </header>
@@ -78,7 +75,7 @@
         margin-top: 4px;
         gap: 20px;
 
-        .card {
+        /* .card {
           width: 310px;
           overflow: hidden;
           border-radius: 2%;
@@ -100,7 +97,7 @@
           h2 {
             font-weight: bold;
           }
-        }
+        } */
 
 
       }
