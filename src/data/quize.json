@@ -40,7 +40,7 @@
   {
     "id": 2,
     "img": "https://www.aquaportail.com/pictures2107/biologie-vie.jpg",
-    "name": "Biologie",
+    "name": "Biology",
     "questions": [
       {
         "id": 1,
@@ -140,7 +140,7 @@
   {
     "id": 3,
     "img": "https://www.thoughtco.com/thmb/6MsMmUK27akFhb8i89kj95J5iko=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-545286316-433dd345105e4c6ebe4cdd8d2317fdaa.jpg",
-    "name": "Chemistry",
+    "name": "Physics",
     "questions": [
       {
         "id": 1,
@@ -178,7 +178,7 @@
   {
     "id": 4,
     "img": "https://www.thoughtco.com/thmb/6MsMmUK27akFhb8i89kj95J5iko=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-545286316-433dd345105e4c6ebe4cdd8d2317fdaa.jpg",
-    "name": "Chemistry",
+    "name": "History",
     "questions": [
       {
         "id": 1,
@@ -216,7 +216,7 @@
   {
     "id": 5,
     "img": "https://www.thoughtco.com/thmb/6MsMmUK27akFhb8i89kj95J5iko=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-545286316-433dd345105e4c6ebe4cdd8d2317fdaa.jpg",
-    "name": "Chemistry",
+    "name": "Psychology",
     "questions": [
       {
         "id": 1,
