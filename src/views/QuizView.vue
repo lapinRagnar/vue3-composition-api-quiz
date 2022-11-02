@@ -1,10 +1,16 @@
 <template>  
   <div>
 
-    <QuizHeader :questionStatus="questionStatus" :barPercentage="barPercentage" />
+    <QuizHeader
+      :questionStatus="questionStatus"
+      :barPercentage="barPercentage"
+    />
 
     <div>
-      <Question :question="quiz.questions[currentQuestionIndex]" />
+      <Question
+        :question="quiz.questions[currentQuestionIndex]" 
+        @selectOption="onOptionSelected"
+      />
     </div>
 
     <button @click="currentQuestionIndex++">Next Question</button>
@@ -23,6 +29,7 @@
   const quizId = parseInt(route.params.id)
   const quiz = quizes.find(q => q.id === quizId)
   const currentQuestionIndex = ref(0)
+  const numberOfCorrectAnswers = ref(0)
 
   const questionStatus = computed(() => {
     return `${currentQuestionIndex.value}/${quiz.questions.length}`
@@ -32,7 +39,13 @@
     return `${currentQuestionIndex.value/quiz.questions.length * 100}%`
   })
 
-
+  const onOptionSelected = (isCorrect) => {
+    console.log('la valeur recue', isCorrect)
+    if (isCorrect) {
+      numberOfCorrectAnswers.value++
+    }
+    currentQuestionIndex.value++
+  }
 
 </script>
 
