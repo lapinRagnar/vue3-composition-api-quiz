@@ -8,12 +8,17 @@
 
     <div>
       <Question
+        v-if="!showResults"
         :question="quiz.questions[currentQuestionIndex]" 
         @selectOption="onOptionSelected"
       />
-    </div>
 
-    <button @click="currentQuestionIndex++">Next Question</button>
+      <Result
+        v-else
+        :quizQuestionLength="quiz.questions.length"
+        :numberOfCorrectAnswers="numberOfCorrectAnswers"
+      />
+    </div>
 
   </div>
 </template>
@@ -21,6 +26,8 @@
 <script setup>
   import Question from '@/components/Question.vue';
   import QuizHeader from '@/components/QuizHeader.vue'
+  import Result from '@/components/Result.vue'
+
   import { computed, ref, watch } from 'vue';
   import { useRoute } from 'vue-router'
   import quizes from '@/data/quize.json'
@@ -30,6 +37,7 @@
   const quiz = quizes.find(q => q.id === quizId)
   const currentQuestionIndex = ref(0)
   const numberOfCorrectAnswers = ref(0)
+  const showResults = ref(false)
 
   const questionStatus = computed(() => {
     return `${currentQuestionIndex.value}/${quiz.questions.length}`
@@ -43,6 +51,9 @@
     console.log('la valeur recue', isCorrect)
     if (isCorrect) {
       numberOfCorrectAnswers.value++
+    }
+    if (quiz.questions.length -1 === currentQuestionIndex.value) {
+      showResults.value = true
     }
     currentQuestionIndex.value++
   }
